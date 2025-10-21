@@ -7,7 +7,6 @@ services:
       - ./app:/app
     ports:
       - "8080:8080"
-      - "443:443"
     command: make dev
     depends_on:
       - db
@@ -18,9 +17,9 @@ services:
     cap_add:
       - NET_ADMIN
     ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
+#      - "80:80"
+#      - "443:443"
+#      - "443:443/udp"
     volumes:
       - ./app/services/caddy:/etc/caddy
       - caddy_data:/data
