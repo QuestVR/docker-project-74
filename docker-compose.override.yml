@@ -10,16 +10,16 @@ services:
     command: make dev
     depends_on:
       - db
-    command: sh -c "caddy run --config /app/Caddyfile & npm start"
+
   caddy:
     image: caddy:builder-alpine
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
-#    ports:
-#      - "80:80"
-#      - "443:443"
-#      - "443:443/udp"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
     volumes:
       - ./app/services/caddy:/etc/caddy
       - caddy_data:/data
