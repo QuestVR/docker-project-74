@@ -1,0 +1,21 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Ensure Caddyfile exists
+        run: |
+          CADDYFILE="./app/services/caddy/Caddyfile"
+          if [ -e "$CADDYFILE" ]; then
+            if [ -d "$CADDYFILE" ]; then
+              rm -rf "$CADDYFILE"
+              touch "$CADDYFILE"
+            fi
+          else
+            mkdir -p "$(dirname "$CADDYFILE")"
+            touch "$CADDYFILE"
+          fi
+
+      - name: Build and run Docker
+        run: docker-compose up -d --build
