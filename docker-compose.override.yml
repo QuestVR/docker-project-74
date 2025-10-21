@@ -7,10 +7,11 @@ services:
       - ./app:/app
     ports:
       - "8080:8080"
+      - "443:443"
     command: make dev
     depends_on:
       - db
-
+    command: sh -c "caddy run --config /app/Caddyfile & npm start"
   caddy:
     image: caddy:builder-alpine
     restart: unless-stopped
@@ -48,12 +49,6 @@ services:
       timeout: 5s
       retries: 5
 
-  test:
-    build: .
-    network_mode: host      # ключевой момент для тестов
-    depends_on:
-      - caddy
-    command: make test
 
 volumes:
   caddy_data:
