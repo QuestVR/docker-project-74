@@ -5,11 +5,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./app:/app
-      - ./.env:/app/.env
     ports:
       - "8080:8080"
-    env_file:
-      - .env
     command: make dev
     depends_on:
       - db
