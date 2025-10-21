@@ -31,7 +31,7 @@ lint-fix:
 	npx eslint --fix .
 
 test:
-	NODE_ENV=test npm test -s
+	NODE_ENV=test BASE_URL=https://localhost:443 npm test -s
 
 ci:
 	docker compose -f ../docker-compose.yml run app make test
