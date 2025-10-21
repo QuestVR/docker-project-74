@@ -1,4 +1,4 @@
-  services:
+services:
   app:
     image: questqwe123/docker-project-74
     build:
