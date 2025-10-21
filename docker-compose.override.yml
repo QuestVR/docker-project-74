@@ -47,6 +47,21 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+
+  test:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    depends_on:
+      - caddy
+      - db
+    environment:
+      NODE_ENV: test
+      BASE_URL: https://caddy:443
+    command: make test
+    volumes:
+      - ./app:/app
+
 volumes:
   caddy_data:
   caddy_config:
