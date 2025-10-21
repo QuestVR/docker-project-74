@@ -1,4 +1,5 @@
 [![app CI](https://github.com/QuestVR/docker-project-74/actions/workflows/push.yml/badge.svg)](https://github.com/QuestVR/docker-project-74/actions/workflows/push.yml)
+[![Node CI](https://github.com/QuestVR/docker-project-74/actions/workflows/nodejs.yml/badge.svg)](https://github.com/QuestVR/docker-project-74/actions/workflows/nodejs.yml)
 # JS Fastify Blog
 
 [![Main](https://github.com/hexlet-components/js-fastify-blog/actions/workflows/main.yml/badge.svg)](https://github.com/hexlet-components/js-fastify-blog/actions/workflows/main.yml)
