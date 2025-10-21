@@ -11,7 +11,7 @@
       "prebuild": "rm -rf dist",
       "build": "webpack",
       "pretest": "sequelize db:migrate:undo && npm run migrate",
-      "test": "NODE_ENV=test jest --verbose --runInBand --extensions-to-treat-as-esm=.js --rootDir=.",
+      "test": "NODE_ENV=test node --loader ts-node/esm node_modules/jest/bin/jest.js --verbose --runInBand",
       "prestart": "npm run migrate",
       "start": "fastify start -a 0.0.0.0 -p 8080 server/plugin.js -l debug -P -o",
       "predev": "npm run migrate",
