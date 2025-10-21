@@ -31,7 +31,7 @@ lint-fix:
 	npx eslint --fix .
 
 test:
-	cd app && NODE_ENV=test npm test -s
+	NODE_ENV=test npm test -s
 
 ci:
 	docker compose -f ../docker-compose.yml run app make test
