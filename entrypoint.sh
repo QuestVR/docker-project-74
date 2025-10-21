@@ -1,17 +1,20 @@
-#!/bin/sh
+#!/usr/bin/env bash
+set -e
 
+# Путь к Caddyfile внутри контейнера
 CADDYFILE="/etc/caddy/Caddyfile"
 
-# Если путь существует и это директория — удаляем её
+# Если путь существует и это директория — удаляем
 if [ -d "$CADDYFILE" ]; then
+  echo "[INFO] $CADDYFILE is a directory. Removing..."
   rm -rf "$CADDYFILE"
 fi
 
-# Создаём директорию, если её нет
+# Создаём директорию /etc/caddy, если её нет
 mkdir -p "$(dirname "$CADDYFILE")"
 
-# Перезаписываем файл нужным содержимым
-cat > "$CADDYFILE" <<EOF
+# Создаём Caddyfile с нужной конфигурацией
+cat > "$CADDYFILE" <<'EOF'
 localhost {
   log {
     format json
@@ -27,6 +30,8 @@ localhost {
   reverse_proxy app:8080
 }
 EOF
+
+echo "[INFO] Caddyfile created at $CADDYFILE"
 
 # Запускаем Caddy
 exec caddy run --config "$CADDYFILE"

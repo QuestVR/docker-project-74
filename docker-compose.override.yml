@@ -24,7 +24,7 @@ services:
       - ./entrypoint.sh:/etc/caddy/entrypoint.sh
       - caddy_data:/data
       - caddy_config:/config
-    command: ["/bin/sh", "/etc/caddy/entrypoint.sh"]
+    entrypoint: ["/etc/caddy/entrypoint.sh"]
     depends_on:
       - app
     healthcheck:
