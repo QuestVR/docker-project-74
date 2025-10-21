@@ -49,18 +49,11 @@ services:
       retries: 5
 
   test:
-    build:
-      context: ./app
-      dockerfile: Dockerfile
+    build: .
+    network_mode: host      # ключевой момент для тестов
     depends_on:
       - caddy
-      - db
-    environment:
-      NODE_ENV: test
-      BASE_URL: https://caddy:443
     command: make test
-    volumes:
-      - ./app:/app
 
 volumes:
   caddy_data:
