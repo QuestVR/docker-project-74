@@ -7,6 +7,6 @@ tmp/
 temp/
 .env
 *.sqlite
-.cache/
+.cache/node-gyp/20.12.2
 .npm/
 .npmrc

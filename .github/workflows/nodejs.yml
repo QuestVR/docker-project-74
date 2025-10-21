@@ -21,5 +21,8 @@ jobs:
           node-version: '20.x'
           cache: 'npm'
       - run: make setup
+        working-directory: ./app
       - run: make lint
+        working-directory: ./app
       - run: make test
+        working-directory: ./app

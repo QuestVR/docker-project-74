@@ -27,6 +27,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: ci test
+        working-directory: ./app
         run: make ci
 
       - name: Build and push
