@@ -9,12 +9,12 @@
 
 * NodeJS v20.6.1
 * Sqlite или PostgreSQL
-
+* Docker/Docker Compose
 ## Commands
 
 ```bash
 make install
-make dev
+nake dev
 ```
 
 ## Run tests with Postgres
@@ -58,9 +58,20 @@ Export environment variables to work with the database or prepare a *.env* file 
 
 Run
 
+DockerHub: questqwe123/docker-project-74
+
 ```bash
-make build # build assets
+docker compose --build # build 
+docker compose up # start
+```
+
+Tests
+
+```bash
+make ci # docker test
+make test # npm test
 make start # Open in browser: http://localhost:8080
+make lint # linter test
 ```
 
 ---

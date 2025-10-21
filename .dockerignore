@@ -2,3 +2,11 @@ node_modules/
 dist/
 .env
 *.sqlite
+.cache/
+.npm/
+.git
+.gitignore
+.github/
+README.md
+tmp
+
