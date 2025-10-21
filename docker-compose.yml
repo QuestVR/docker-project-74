@@ -26,10 +26,10 @@ services:
     image: caddy:2-alpine
     restart: unless-stopped
     volumes:
-      - ./app/services/caddy:/etc/caddy
+      - ./entrypoint.sh:/etc/caddy/entrypoint.sh
       - caddy_data:/data
       - caddy_config:/config
-    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]
+    command: ["/bin/sh", "/etc/caddy/entrypoint.sh"]
     depends_on:
       - app
     healthcheck:
