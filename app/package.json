@@ -11,7 +11,7 @@
       "prebuild": "rm -rf dist",
       "build": "webpack",
       "pretest": "sequelize db:migrate:undo && npm run migrate",
-      "test": "NODE_ENV=test node --loader ts-node/esm node_modules/jest/bin/jest.js --verbose --runInBand",
+      "test": "jest --verbose --runInBand",
       "prestart": "npm run migrate",
       "start": "fastify start -a 0.0.0.0 -p 8080 server/plugin.js -l debug -P -o",
       "predev": "npm run migrate",
@@ -86,6 +86,8 @@
       "jest-cli": "^29.7.0",
       "pino-pretty": "^11.0.0",
       "style-loader": "^4.0.0",
+      "ts-node": "^10.9.2",
+      "typescript": "^5.9.3",
       "webpack-cli": "^5.1.4"
    }
 }
