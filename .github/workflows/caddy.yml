@@ -28,4 +28,4 @@ jobs:
           fi
 
       - name: Build and run Docker
-        run: docker-compose up -d --build
+        run: docker compose up -d --build
