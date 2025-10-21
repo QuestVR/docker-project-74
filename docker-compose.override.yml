@@ -12,7 +12,7 @@ services:
       - db
 
   caddy:
-    image: caddy:builder-alpine
+    image: caddy:2-alpine
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
