@@ -27,7 +27,10 @@ services:
     command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]
     depends_on:
       - app
-
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80 || exit 1"]
+      interval: 2s
+      retries: 15
   db:
     image: postgres
     restart: always
