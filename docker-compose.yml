@@ -1,4 +1,4 @@
-services:
+  services:
   app:
     image: questqwe123/docker-project-74
     build:
@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile.production
     depends_on:
       - db
-      - caddy
+
 
   db:
     image: postgres
@@ -26,9 +26,10 @@ services:
     image: caddy:2-alpine
     restart: unless-stopped
     volumes:
-      - ./app/services/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./app/services/caddy/Caddyfile:/Caddyfile:ro
       - caddy_data:/data
       - caddy_config:/config
+    command: ["caddy", "run", "--config", "/Caddyfile"]
     depends_on:
       - app
 
